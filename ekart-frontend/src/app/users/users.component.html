@@ -1,0 +1,12 @@
+<table id="customers">
+  <tr>
+    <th>
+      User Name
+    </th>
+    <th>Email</th>
+  </tr>
+  <tr *ngFor="let row of users">
+    <td>{{row.name}}</td>
+    <td>{{row.email}}</td>
+  </tr>
+</table>

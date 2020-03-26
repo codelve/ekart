@@ -1,0 +1,42 @@
+<div class="row" style="margin-top: 50px;">
+  <div class="col-sm-3"></div>
+  <div class="container col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 align="center">View Profile</h3>
+      </div>
+      <div class="panel-body" *ngIf="profileDetail && !errorMsg">
+        <div class="col-sm-offset-1 col-sm-10">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <tr>
+                <th>Email</th>
+                <td>{{profileDetail.email}}</td>
+              </tr>
+              <tr>
+                <th>User Name</th>
+                <td>{{profileDetail.name}}</td>
+              </tr>
+              <tr>
+                <th>Address</th>
+                <td>{{profileDetail.address}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <br>
+      </div>
+      <br><br>
+      <div class="panel-body" *ngIf="friendAndFamilyErrorMsg">
+        <div class="red">{{friendAndFamilyErrorMsg}}</div><br>
+        <button class="btn btn-primary" style="margin-left:5px;" [routerLink]="['/home']">Back</button>
+      </div>
+      <div class="panel-body" *ngIf="errorMsg">
+        <div class="red">{{errorMsg}}</div><br>
+        <button class="btn btn-primary" style="margin-left:5px;" [routerLink]="['/home']">Back</button>
+      </div>
+      <br>
+    </div>
+  </div>
+</div>
+<br><br><br>

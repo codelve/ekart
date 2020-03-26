@@ -1,0 +1,4 @@
+{"_id":{"$oid":"5e79fabf01a5c6dc7552ebcb"},"name":"ROLE_GUEST"}
+{"_id":{"$oid":"5e79fabf01a5c6dc7552ebcc"},"name":"ROLE_BUYER"}
+{"_id":{"$oid":"5e79fabf01a5c6dc7552ebcd"},"name":"ROLE_SELLER"}
+{"_id":{"$oid":"5e79fabf01a5c6dc7552ebce"},"name":"ROLE_ADMIN"}

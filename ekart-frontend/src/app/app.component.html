@@ -1,0 +1,81 @@
+<!-- <div>
+	<nav class='navbar navbar-default navbar-fixed-top'>
+		<div class='container-fluid'>
+			<ul class="social-network social-circle iconpos">
+				<li><a href="#" class="icoFacebook" title="Facebook"><i
+						class="fa fa-facebook fa-1x"></i></a></li>
+				<li class="divider-vertical"></li>
+				<li><a href="#" class="icoTwitter" title="Twitter"><i
+						class="fa fa-twitter fa-1x"></i></a></li>
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<div class="panel-heading text-right" style="display:none;padding:0px;position:relative;top:15px;" id="welcome">Welcome {{email | titlecase}}</div></li>
+				<li class="divider-vertical"></li>
+				<li>
+					<div class="btn-nav" style="padding-right:15px">
+						<a id="login" class="btn btn-primary btn-small navbar-btn" (click)="login()">{{loginTitle}}</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<router-outlet></router-outlet>
+
+</div> -->
+<!-- Started here -->
+<mat-sidenav-container fullscreen>
+	<mat-sidenav #sidenav mode="push" class="app-sidenav">
+		<mat-toolbar color="primary">
+			<!--future svg to go here-->
+			<span class="toolbar-filler"></span>
+			<button mat-icon-button (click)="sidenav.toggle()" class="mat-icon-button sidenav-toggle-button"
+				[hidden]="!sidenav.opened">
+				<mat-icon aria-label="Menu" class="material-icons">close</mat-icon>
+			</button>
+		</mat-toolbar>
+		<mat-nav-list *ngIf="showLogout | async">
+			<a mat-list-item class="sidenav-link" [routerLink]="['/profile']" (click)="sidenav.toggle()">
+				<mat-icon mat-list-icon>person</mat-icon>
+				<span class="title" mat-line>View Profile</span>
+				<!-- <span mat-line class="secondary">test</span> -->
+			</a>
+			<a mat-list-item class="sidenav-link" [routerLink]="['/products']" (click)="sidenav.toggle()">
+				<mat-icon mat-list-icon>store</mat-icon>
+				<span class="title" mat-line>Store</span>
+				<span mat-line class="secondary">View Products</span>
+			</a>
+			<a *ngIf="showAdminDashboard || showSellerDashboard" mat-list-item class="sidenav-link" [routerLink]="['/add-product']" (click)="sidenav.toggle()">
+				<mat-icon mat-list-icon>add_to_queue</mat-icon>
+				<span class="title" mat-line>Add Product</span>
+			</a>
+			<a *ngIf="showAdminDashboard" mat-list-item class="sidenav-link" [routerLink]="['/all-users']" (click)="sidenav.toggle()">
+				<mat-icon mat-list-icon>group</mat-icon>
+				<span class="title" mat-line>Users</span>
+				<span mat-line class="secondary">View Users</span>
+			</a>
+		</mat-nav-list>
+	</mat-sidenav>
+	<mat-toolbar id="appToolbar" color="primary">
+		<button mat-icon-button (click)="sidenav.toggle()" class="mat-icon-button sidenav-toggle-button"
+			[hidden]="sidenav.opened">
+			<mat-icon aria-label="Menu" class="material-icons">menu</mat-icon>
+		</button>
+		<h1 class="component-title">
+			{{pageTitle}}
+		</h1>
+		<span class="toolbar-filler"></span>
+		<!--<button id="button-login" mat-button [routerLink]="['/signupin']" *ngIf="!(user | async)">Log In</button>-->
+		<div *ngIf="showLogout | async" class="panel-heading text-right" style="position:relative;" id="welcome">
+			Welcome {{username | titlecase}}</div>
+		<div class="btn-nav" style="padding-right:15px">
+			<a *ngIf="showLogout | async; else showLogin" id="logout" class="btn btn-primary btn-small navbar-btn" (click)="logout()">LogOut</a>
+			<ng-template #showLogin>
+				<a id="login" [routerLink]="['/login']" class="btn btn-primary btn-small navbar-btn">Login</a>
+			</ng-template>
+		</div>
+	</mat-toolbar>
+	<router-outlet></router-outlet>
+</mat-sidenav-container>

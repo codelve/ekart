@@ -1,0 +1,31 @@
+.container-styles{
+	position: relative; 
+	top: 80px;
+}
+
+.padding{
+  padding-bottom:0px;
+  margin-bottom:0px;
+}
+
+.link-underline{
+   color:#337ab7;
+    text-decoration: underline;
+}
+
+.error{
+    color: red;
+    position:relative;
+    left:50px;
+}
+
+.red{
+  color: red;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0; 
+}
