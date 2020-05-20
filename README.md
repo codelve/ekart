@@ -1,5 +1,5 @@
 # ekart
-Online platform to but and sell products
+Online platform to buy and sell products
 
 # Features
 
